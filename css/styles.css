@@ -149,7 +149,7 @@ main {
   z-index: 3;
   position: absolute;
   padding: 640px 765px;
-  background-image: url(images/map.jpg);
+  background-image: url("../images/map.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   transition: 1s;
