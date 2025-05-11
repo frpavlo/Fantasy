@@ -1,0 +1,317 @@
+@font-face {
+  font-family: "tolkiencyr";
+  src: url("/fonts/tolkiencyr.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes exit-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1275px);
+  }
+}
+
+@keyframes enter-left {
+  from {
+    transform: translateX(-3000px);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes backgroundFade {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Ringbearer", serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.video-background iframe {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 30vh;
+  font-size: 2rem;
+  text-shadow: 0 0 8px black;
+}
+
+.main {
+  overflow: auto;
+  z-index: 2;
+  transform: translateX(-10px);
+  background-size: cover;
+  animation-name: enter-left;
+  background-repeat: no-repeat;
+  animation-duration: 5s;
+  border-left: 10px darkred solid;
+  border-right: 10px darkred solid;
+  font-family: "tolkiencyr";
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50rem 5rem 0;
+}
+
+.img-holder,
+.info {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.gallery {
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img-holder img {
+  max-width: 100%;
+  width: 646px;
+}
+
+.gallery-title,
+.main-title {
+  font-size: 72px;
+  color: white;
+  text-align: center;
+}
+
+.map {
+  width: 100vw;
+  z-index: 3;
+  position: absolute;
+  padding: 640px 765px;
+  background-image: url(/images/map.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 1s;
+  transform: translateY(-1275px);
+  animation-name: exit-top;
+  animation-duration: 3s;
+  animation-fill-mode: backwards;
+}
+
+.map:hover {
+  transform: translateY(-1200px);
+}
+
+.hero {
+  position: relative;
+  margin: 0 auto;
+  animation: backgroundFade 4s forwards;
+}
+
+.hero img {
+  opacity: 0;
+  filter: blur(20px) brightness(0.2);
+  transform: scale(0.3);
+  transition: all 4s ease-in-out;
+  animation: reveal 4s ease-in-out forwards;
+  animation-delay: 4s;
+}
+
+.hero-link {
+  font-size: 3.5rem;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  padding: 2rem 3rem;
+  opacity: 0;
+  cursor: url("../images/One_Ring.png"), auto;
+}
+
+.eriador {
+  top: 30%;
+  left: 19%;
+  transform: rotate(12deg);
+}
+
+.rhovanion {
+  top: 35%;
+  right: 17%;
+  transform: rotate(30deg);
+}
+
+.rohan {
+  left: 45%;
+  top: 50%;
+  transform: rotate(-10deg);
+}
+
+.gondor {
+  left: 43%;
+  bottom: 20%;
+  transform: rotate(15deg);
+}
+
+.mordor {
+  bottom: 20%;
+  right: 12%;
+  transform: rotate(-18deg);
+}
+
+.arnor {
+  top: 5%;
+  left: 23%;
+  transform: rotate(20deg);
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 4px;
+  }
+  .wrapper {
+    padding-top: 310rem;
+  }
+  .wrapper_eriador {
+    padding-top: 370rem;
+  }
+  .wrapper_rhovanion {
+    padding-top: 500rem;
+  }
+  .wrapper_rohan {
+    padding-top: 530rem;
+  }
+  .wrapper_gondor {
+    padding-top: 330rem;
+  }
+  .wrapper_mordor {
+    padding-top: 230rem;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  .wrapper {
+    padding-top: 80rem;
+  }
+  .wrapper_eriador,
+  .wrapper_rhovanion {
+    padding-top: 130rem;
+  }
+  .wrapper_rohan {
+    padding-top: 180rem;
+  }
+  .wrapper_gondor {
+    padding-top: 100rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+  .wrapper {
+    padding-top: 50rem;
+  }
+  .wrapper_eriador {
+    padding-top: 100rem;
+  }
+  .wrapper_rhovanion {
+    padding-top: 80rem;
+  }
+  .wrapper_rohan {
+    padding-top: 120rem;
+  }
+  .wrapper_gondor {
+    padding-top: 70rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1b1b; 
+  border-left: 1px solid #3a2e1e; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#a97400, #5b3b00);
+  border-radius: 6px;
+  border: 2px solid #1b1b1b;
+  box-shadow: 0 0 4px #d9a441;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#e9b647, #7b540c);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a97400 #1b1b1b;
+}
